@@ -4,7 +4,7 @@ import { mockInterviewContent } from "@/data"
 
 const ResumeBuilder = () => {
   return (
-    <StickySection>
+    <StickySection sectionClassName="lg:pb-5 xs:pb-0">
       <Services
         tabsContent={mockInterviewContent}
         subtitleBackgroundColor="bg-blue-primary"

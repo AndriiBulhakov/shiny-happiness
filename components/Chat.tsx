@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 import { tabContent } from "@/data"
 import TabList from "./ui/TabList"
@@ -7,8 +9,8 @@ function Chat() {
   const [activeTab, setActiveTab] = useState<number>(0)
 
   return (
-    <section>
-      <div className="mx-auto max-w-[66.125rem]">
+    <section id="interview-copilot">
+      <div className="mx-auto max-w-[68.625rem]">
         <TabList
           tabContent={tabContent}
           activeTab={activeTab}

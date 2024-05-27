@@ -1,6 +1,8 @@
 "use client"
 
-import { ReactLenis } from "@studio-freight/react-lenis"
+// import { ReactLenis } from "@studio-freight/react-lenis"
+
+import { useState } from "react"
 
 import { Hero } from "@/components/Hero"
 import BackgroundBubbles from "@/components/ui/BackgroundBubbles"
@@ -20,34 +22,49 @@ import Tutorials from "@/components/Tutorials"
 import CTA from "@/components/CTA"
 import Subscription from "@/components/Subscription"
 import { Footer } from "@/components/Footer"
+import CookieConsentBanner from "@/components/CookieConsentBanner"
+import Preloader from "@/components/ui/Preloader"
 
 export default function Home() {
+  const [loaded, setLoaded] = useState(false)
+
+  const handleLoaded = () => {
+    setLoaded(true)
+
+    if (loaded) {
+      return true
+    }
+  }
+
   return (
     <>
-      <ReactLenis root>
-        <main>
-          <BackgroundBubbles position="fixed" className="z-[-1]" />
-          <Navbar />
-          <Hero />
-          <Chat />
-          <Companies />
+      {/* <ReactLenis root> */}
+      <Preloader loaded={handleLoaded} />
+      <main>
+        <BackgroundBubbles position="fixed" className="z-[-1]" />
+        <Navbar loaded={handleLoaded} />
+        <Hero loaded={handleLoaded} />
+        <Chat />
+        <Companies />
+
+        <div className="relative lg:flex lg:flex-col lg:gap-[100svh]">
           <Features />
-          <div className="relative flex flex-col gap-[100svh]">
-            <Workflow />
-            <ResumeBuilder />
-            <MockInterview />
-            <QuestionBank />
-            <InterviewReport />
-          </div>
-          <Testimonials />
-          <FAQ />
-          <Mentions />
-          <Tutorials />
-          <CTA />
-          <Subscription />
-          <Footer />
-        </main>
-      </ReactLenis>
+          <Workflow />
+          <ResumeBuilder />
+          <MockInterview />
+          <QuestionBank />
+          <InterviewReport />
+        </div>
+        <Testimonials />
+        <FAQ />
+        <Mentions />
+        <Tutorials />
+        <CTA />
+        <Subscription />
+        <Footer />
+      </main>
+      <CookieConsentBanner />
+      {/* </ReactLenis> */}
     </>
   )
 }

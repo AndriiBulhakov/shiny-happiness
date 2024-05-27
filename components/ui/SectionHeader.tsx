@@ -13,7 +13,7 @@ const SectionsHeader = ({
     <>
       {subtitle ? (
         <div
-          className={`flex flex-col items-center gap-16 text-center relative z-10 ${
+          className={`flex flex-col items-center lg:gap-16 xs:gap-12 text-center relative z-10 ${
             textColor ? textColor : ""
           } ${className ? className : ""}`}
         >

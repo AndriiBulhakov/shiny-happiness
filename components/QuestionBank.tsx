@@ -4,7 +4,7 @@ import { questionBankContent } from "@/data"
 
 const ResumeBuilder = () => {
   return (
-    <StickySection>
+    <StickySection sectionClassName="lg:pb-5 xs:pb-0" id="question-bank">
       <Services
         tabsContent={questionBankContent}
         subtitleBackgroundColor="bg-orange-primary"

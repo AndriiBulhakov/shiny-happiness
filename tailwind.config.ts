@@ -42,6 +42,7 @@ const config: Config = {
         red: {
           primary: "#FF4800",
           secondary: "#FFCFBC",
+          error: "#CC0300",
         },
         orange: {
           primary: "#FFC046",
@@ -59,7 +60,7 @@ const config: Config = {
           primary: "#1C1D20",
           secondary: "#494A4D",
           tetriary: "#6B7280",
-          quaternary: "#AFB5C1",
+          quaternary: "rgba(28, 29, 32, 0.30)",
           quinary: "#E9EEF2",
         },
         white: {
@@ -93,6 +94,7 @@ const config: Config = {
         ":root": {
           "--red-primary": theme("colors.red.primary"),
           "--red-secondary": theme("colors.red.secondary"),
+          "--red-error": theme("colors.red.error"),
           "--orange-primary": theme("colors.orange.primary"),
           "--orange-secondary": theme("colors.orange.secondary"),
           "--pink-primary": theme("colors.pink.primary"),

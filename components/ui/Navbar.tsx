@@ -1,14 +1,22 @@
-import { useState, useEffect, useRef } from "react"
+"use client"
+
+import { useState, useEffect, useRef, use } from "react"
 import { Logo } from "@/components/ui/Logo"
 import navStyles from "./NavbarMobile.module.css"
 import { navLinks } from "@/data"
+import gsap from "gsap"
 
-function Navbar() {
+interface NavbarProps {
+  loaded: () => void
+}
+
+function Navbar({ loaded }: NavbarProps) {
   const [menuToggle, setMenuToggle] = useState<boolean>(false)
   const [navColor, setNavColor] = useState<boolean>(false)
   const [navTranslate, setNavTranslate] = useState<number>(0)
   const lastScrollY = useRef<number>(0)
   const isScrolling = useRef<boolean>(false)
+  const navbar = useRef<HTMLDivElement>(null)
 
   const handleScroll = () => {
     if (!isScrolling.current) {
@@ -61,16 +69,31 @@ function Navbar() {
     }
   }, [menuToggle])
 
+  useEffect(() => {
+    gsap.set(navbar.current, { y: "-100%" })
+
+    if (loaded) {
+      gsap.to(navbar.current, {
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.4,
+        onComplete: loaded,
+      })
+    }
+  }, [loaded])
+
   return (
     <nav
+      ref={navbar}
       style={{ transform: `translateY(${navTranslate}%)` }}
-      className={`flex flex-row items-center justify-between font-medium text-body/medium ease-in-out duration-300 lg:py-6 lg:px-5 xs:p-4 fixed z-10 top-0 left-0 right-0 ${
+      className={`flex flex-row items-center justify-between font-medium text-body/medium  lg:py-6 lg:px-5 xs:p-4 fixed z-[100] top-0 left-0 right-0 ${
         navColor ? "nav-scroll" : ""
       }`}
     >
       <a
         href="/"
-        className="navbar-logo relative z-10 lg:visible-translate-y-2 xs:visible-translate-y-0 lg:w-[11.8125rem] xs:w-[3.58075rem]"
+        className="without-underline navbar-logo relative z-10 lg:visible-translate-y-2 xs:visible-translate-y-0 lg:w-[11.8125rem] xs:w-[3.58075rem]"
       >
         <Logo type="nav" />
       </a>
@@ -86,37 +109,34 @@ function Navbar() {
               return (
                 <li
                   key={i + 1}
-                  className={item.mobileOnly ? "xl:hidden xs:block" : ""}
+                  className={`${item.mobileOnly ? "xl:hidden xs:block" : ""} ${
+                    item.icon ? "flex items-center gap-[0.38rem]" : ""
+                  }`}
                 >
-                  <a
-                    href={item.href}
-                    className={
-                      item.icon ? "flex items-center gap-[0.38rem]" : ""
-                    }
-                  >
+                  <a href={item.href}>
                     {item.type !== "button" && item.mobileOnly ? (
                       <div className="btn btn-primary">{item.name}</div>
                     ) : null}
                     {item.type !== "button" && !item.mobileOnly
                       ? item.name
                       : null}
-                    {item.icon ? (
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="17"
-                          height="16"
-                          viewBox="0 0 17 16"
-                          fill="none"
-                        >
-                          <path
-                            d="M2 8.86603C1.33333 8.48113 1.33333 7.51888 2 7.13397L11 1.93782C11.6667 1.55292 12.5 2.03405 12.5 2.80385L12.5 13.1962C12.5 13.966 11.6667 14.4471 11 14.0622L2 8.86603Z"
-                            fill="#FF4800"
-                          />
-                        </svg>
-                      </span>
-                    ) : null}
                   </a>
+                  {item.icon ? (
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="16"
+                        viewBox="0 0 17 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M2 8.86603C1.33333 8.48113 1.33333 7.51888 2 7.13397L11 1.93782C11.6667 1.55292 12.5 2.03405 12.5 2.80385L12.5 13.1962C12.5 13.966 11.6667 14.4471 11 14.0622L2 8.86603Z"
+                          fill="#FF4800"
+                        />
+                      </svg>
+                    </span>
+                  ) : null}
                 </li>
               )
             })}

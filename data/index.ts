@@ -2,44 +2,44 @@ export const navLinks = [
   {
     id: 1,
     name: "Interview Copilot®️",
-    href: "#",
+    href: "/#interview-copilot",
     icon: true,
   },
   {
     id: 2,
     name: "AI Resume Builder",
-    href: "#",
+    href: "/#ai-resume-builder",
     icon: false,
   },
   {
     id: 3,
     name: "Question Bank",
-    href: "#",
+    href: "/#question-bank",
     icon: false,
   },
   {
     id: 4,
     name: "Testimonials",
-    href: "#",
+    href: "/#testimonials",
     icon: false,
   },
   {
     id: 5,
     name: "Scholarships",
-    href: "#",
+    href: "/#scholarships",
     icon: false,
   },
   {
     id: 6,
     name: "Log in",
-    href: "#",
+    href: "https://accounts.finalroundai.com/sign-in",
     icon: false,
     mobileOnly: true,
   },
   {
     id: 7,
     name: "Get Started Free",
-    href: "#",
+    href: "https://accounts.finalroundai.com/sign-up",
     icon: false,
     mobileOnly: true,
     type: "button",
@@ -62,7 +62,7 @@ export const heroContent = {
   ],
   button: {
     text: "Unlock AI Superpower",
-    href: "#",
+    href: "https://accounts.finalroundai.com/sign-up",
   },
   videoTitle1: "Generating answer",
   videoTitle2: "Transcribing",
@@ -77,213 +77,23 @@ export const heroContent = {
 export const tabContent = [
   {
     title: "Software Engineering",
-    interviewer: {
-      video: "/assets/video/Chat-1.mp4",
-      messages: [
-        { text: "Hello", time: "12:54:58" },
-        { text: "Let's start from some basics.", time: "12:55:10" },
-        { text: "Hhhhhm...", time: "12:55:20" },
-        {
-          text: "Describe a time when you used your leadership skills to motivate your team.",
-          time: "12:55:30",
-        },
-      ],
-      icon: true,
-    },
-    copilot: {
-      messages: [
-        {
-          text: "During a particularly challenging project at work, our team was facing tight deadlines and mounting pressure. It was a critical project for the company, and tensions were running high. Sensing the need for motivation and cohesion, I decided to step up and utilize my leadership skills to rally the team.",
-          time: "12:54:59",
-        },
-        {
-          text: "Throughout the project, I made sure to lead by example, demonstrating resilience, determination, and a willingness to roll up my sleeves and tackle challenges alongside my team. I provided continuous support and guidance, offering constructive feedback and celebrating small victories along the way. During my time as the Lead Designer, I used my leadership skills to motivate my team and colleagues in several instances:",
-          list: [
-            "I implemented a collaborative work environment, where all team members felt valued and heard.",
-            "I organized team-building activities to boost morale and foster a sense of camaraderie.",
-            "I recognized and rewarded individual and team achievements, reinforcing a culture of appreciation and acknowledgment.",
-            "I facilitated open communication and feedback sessions, encouraging transparency and trust within the team.",
-          ],
-          time: "12:55:15",
-        },
-      ],
-      icon: false,
-    },
-    you: {
-      messages: [
-        { text: "Hi", time: "12:54:59" },
-        { text: "Nice to meet you", time: "12:55:15" },
-      ],
-      icon: false,
-    },
+    video: "/assets/video/Chat-1.mp4",
   },
   {
     title: "Product Management",
-    interviewer: {
-      video: "/assets/video/Chat-2.mp4",
-      messages: [
-        { text: "Hello", time: "12:54:58" },
-        { text: "Let's start from some basics.", time: "12:55:10" },
-        { text: "Hhhhhm...", time: "12:55:20" },
-        {
-          text: "Describe a time when you used your leadership skills to motivate your team.",
-          time: "12:55:30",
-        },
-      ],
-      icon: true,
-    },
-    copilot: {
-      messages: [
-        {
-          text: "During a particularly challenging project at work, our team was facing tight deadlines and mounting pressure. It was a critical project for the company, and tensions were running high. Sensing the need for motivation and cohesion, I decided to step up and utilize my leadership skills to rally the team.",
-          time: "12:54:59",
-        },
-        {
-          text: "Throughout the project, I made sure to lead by example, demonstrating resilience, determination, and a willingness to roll up my sleeves and tackle challenges alongside my team. I provided continuous support and guidance, offering constructive feedback and celebrating small victories along the way. During my time as the Lead Designer, I used my leadership skills to motivate my team and colleagues in several instances:",
-          list: [
-            "I implemented a collaborative work environment, where all team members felt valued and heard.",
-            "I organized team-building activities to boost morale and foster a sense of camaraderie.",
-            "I recognized and rewarded individual and team achievements, reinforcing a culture of appreciation and acknowledgment.",
-            "I facilitated open communication and feedback sessions, encouraging transparency and trust within the team.",
-          ],
-          time: "12:55:15",
-        },
-      ],
-      icon: false,
-    },
-    you: {
-      messages: [
-        { text: "Hi", time: "12:54:59" },
-        { text: "Nice to meet you", time: "12:55:15" },
-      ],
-      icon: false,
-    },
+    video: "/assets/video/Chat-3.mp4",
   },
   {
     title: "Consulting",
-    interviewer: {
-      video: "/assets/video/Chat-3.mp4",
-      messages: [
-        { text: "Hello", time: "12:54:58" },
-        { text: "Let's start from some basics.", time: "12:55:10" },
-        { text: "Hhhhhm...", time: "12:55:20" },
-        {
-          text: "Describe a time when you used your leadership skills to motivate your team.",
-          time: "12:55:30",
-        },
-      ],
-      icon: true,
-    },
-    copilot: {
-      messages: [
-        {
-          text: "During a particularly challenging project at work, our team was facing tight deadlines and mounting pressure. It was a critical project for the company, and tensions were running high. Sensing the need for motivation and cohesion, I decided to step up and utilize my leadership skills to rally the team.",
-          time: "12:54:59",
-        },
-        {
-          text: "Throughout the project, I made sure to lead by example, demonstrating resilience, determination, and a willingness to roll up my sleeves and tackle challenges alongside my team. I provided continuous support and guidance, offering constructive feedback and celebrating small victories along the way. During my time as the Lead Designer, I used my leadership skills to motivate my team and colleagues in several instances:",
-          list: [
-            "I implemented a collaborative work environment, where all team members felt valued and heard.",
-            "I organized team-building activities to boost morale and foster a sense of camaraderie.",
-            "I recognized and rewarded individual and team achievements, reinforcing a culture of appreciation and acknowledgment.",
-            "I facilitated open communication and feedback sessions, encouraging transparency and trust within the team.",
-          ],
-          time: "12:55:15",
-        },
-      ],
-      icon: false,
-    },
-    you: {
-      messages: [
-        { text: "Hi", time: "12:54:59" },
-        { text: "Nice to meet you", time: "12:55:15" },
-      ],
-      icon: false,
-    },
+    video: "/assets/video/Chat-6.mp4",
   },
   {
     title: "Marketing",
-    interviewer: {
-      video: "/assets/video/Chat-4.mp4",
-      messages: [
-        { text: "Hello", time: "12:54:58" },
-        { text: "Let's start from some basics.", time: "12:55:10" },
-        { text: "Hhhhhm...", time: "12:55:20" },
-        {
-          text: "Describe a time when you used your leadership skills to motivate your team.",
-          time: "12:55:30",
-        },
-      ],
-      icon: true,
-    },
-    copilot: {
-      messages: [
-        {
-          text: "During a particularly challenging project at work, our team was facing tight deadlines and mounting pressure. It was a critical project for the company, and tensions were running high. Sensing the need for motivation and cohesion, I decided to step up and utilize my leadership skills to rally the team.",
-          time: "12:54:59",
-        },
-        {
-          text: "Throughout the project, I made sure to lead by example, demonstrating resilience, determination, and a willingness to roll up my sleeves and tackle challenges alongside my team. I provided continuous support and guidance, offering constructive feedback and celebrating small victories along the way. During my time as the Lead Designer, I used my leadership skills to motivate my team and colleagues in several instances:",
-          list: [
-            "I implemented a collaborative work environment, where all team members felt valued and heard.",
-            "I organized team-building activities to boost morale and foster a sense of camaraderie.",
-            "I recognized and rewarded individual and team achievements, reinforcing a culture of appreciation and acknowledgment.",
-            "I facilitated open communication and feedback sessions, encouraging transparency and trust within the team.",
-          ],
-          time: "12:55:15",
-        },
-      ],
-      icon: false,
-    },
-    you: {
-      messages: [
-        { text: "Hi", time: "12:54:59" },
-        { text: "Nice to meet you", time: "12:55:15" },
-      ],
-      icon: false,
-    },
+    video: "/assets/video/Chat-2.mp4",
   },
   {
     title: "Finance",
-    interviewer: {
-      video: "/assets/video/Chat-6.mp4",
-      messages: [
-        { text: "Hello", time: "12:54:58" },
-        { text: "Let's start from some basics.", time: "12:55:10" },
-        { text: "Hhhhhm...", time: "12:55:20" },
-        {
-          text: "Describe a time when you used your leadership skills to motivate your team.",
-          time: "12:55:30",
-        },
-      ],
-      icon: true,
-    },
-    copilot: {
-      messages: [
-        {
-          text: "During a particularly challenging project at work, our team was facing tight deadlines and mounting pressure. It was a critical project for the company, and tensions were running high. Sensing the need for motivation and cohesion, I decided to step up and utilize my leadership skills to rally the team.",
-          time: "12:54:59",
-        },
-        {
-          text: "Throughout the project, I made sure to lead by example, demonstrating resilience, determination, and a willingness to roll up my sleeves and tackle challenges alongside my team. I provided continuous support and guidance, offering constructive feedback and celebrating small victories along the way. During my time as the Lead Designer, I used my leadership skills to motivate my team and colleagues in several instances:",
-          list: [
-            "I implemented a collaborative work environment, where all team members felt valued and heard.",
-            "I organized team-building activities to boost morale and foster a sense of camaraderie.",
-            "I recognized and rewarded individual and team achievements, reinforcing a culture of appreciation and acknowledgment.",
-            "I facilitated open communication and feedback sessions, encouraging transparency and trust within the team.",
-          ],
-          time: "12:55:15",
-        },
-      ],
-      icon: false,
-    },
-    you: {
-      messages: [
-        { text: "Hi", time: "12:54:59" },
-        { text: "Nice to meet you", time: "12:55:15" },
-      ],
-      icon: false,
-    },
+    video: "/assets/video/Chat-4.mp4",
   },
 ]
 
@@ -536,28 +346,40 @@ export const testimonialsContent = [
 
 export const faqsContent = [
   {
-    title: "What is the best thing about Switzerland?",
-    content: "I don't know, but the flag is a big plus!",
+    title:
+      "What are the system requirements for running the Final Round AI WebApp?",
+    content:
+      "Final Round AI provides a comprehensive suite of AI-driven solutions designed to assist candidates during challenging recruitment periods. Our platform is accessible via an integrated Web App experience, optimized for use with the latest version of the Chrome browser to ensure the best possible user experience. While many of our AI tools, including AI Resume Revision and AI Cover Letter Generation, are compatible with various browsers, the Interview Copilot feature specifically requires the Chrome browser. To download the latest version of Chrome, please visit https://www.google.com/chrome/",
   },
   {
-    title: "How does a penguin build its house?",
-    content: "Igloos it together.",
+    title: "Which online meeting platforms are supported by Final Round AI?",
+    content:
+      "For optimal performance of Final Round AI, we recommend using the platform on the latest version of the Chrome browser. The Interview Copilot feature is compatible with major online meeting platforms, including Zoom, WebEx, Microsoft Teams, Google Meet, and Chime, among others. For detailed instructions on how to configure the Interview Copilot for successful use, please visit our tutorial at https://www.finalroundai.com/blog/how-to-set-up-interview-copilot.",
   },
   {
-    title: "What do you call a fake noodle?",
-    content: "An impasta.",
+    title: "What payment methods are available?",
+    content:
+      "Our goal is to ensure a smooth and convenient experience for our customers. We offer a wide range of payment options through our payment processing partner, Stripe. Accepted payment methods include major credit cards such as Visa, MasterCard, American Express, and Discover, as well as ACH transfers. For those interested in using cryptocurrencies, we kindly ask you to reach out to our customer support for further assistance.",
   },
   {
-    title: "What do you call a belt made out of watches?",
-    content: "A waist of time.",
+    title: "Which domains/industries are supported by Final Round AI?",
+    content:
+      "Our services offer extensive coverage across a variety of domains and industries. We are actively developing domain-specific knowledge bases to supercharge domain knowledges, encompassing areas such as Finance, Consulting, Marketing, Customer Success, Sales, Product Management, IT, Cyber Security, Data Analytics, Software Engineering, among others. For additional details or inquiries about specific domains, please reach out to our customer support.",
   },
   {
-    title: "Why don't skeletons fight each other?",
-    content: "They don't have the guts.",
+    title: "What is the policy for the free trial?",
+    content:
+      "Our free trial offers users limited access to select product features, including AI resume revision and cover letter generation, among others. For the Interview Copilot feature, users are entitled to unlimited access to 5-minute free trial sessions. This means users can initiate the Interview Copilot as often as they wish, with each session being valid for up to 5 minutes.",
   },
   {
-    title: "What do you call a factory that makes okay products?",
-    content: "A satisfactory.",
+    title: "What is the cancellation policy?",
+    content:
+      "Our policy does not permit refunds. While unused credits do not expire, please note that an active subscription is required to access premium features, including unlimited resume revisions and the Interview Copilot. Visit https://www.finalroundai.com/terms for terms and conditions.",
+  },
+  {
+    title: "Is interview transcription available?",
+    content:
+      "In adherence to data privacy protection standards, Final Round AI does not retain interview transcriptions. However, users have the option to access an Interview Report immediately following each session. It is important to note that if the 'View Interview Report' option is not selected upon session completion, retrieval of the report will not be possible at a later time.",
   },
 ]
 

@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from "react"
 
 type Tab = {
@@ -22,21 +23,19 @@ const ServicesList = ({ tabList, type }: ServicesListProps) => {
 
   return (
     <ul
-      className={`flex gap-6 ${
-        type === "horizontal" ? "flex-col" : "flex-row"
+      className={`service-list flex gap-6 ${
+        type === "horizontal" ? "flex-col" : "lg:flex-row xs:flex-col"
       }`}
     >
       {tabList.map((tab, index) => (
         <li key={index} className={`${type === "horizontal" ? "" : "flex-1"}`}>
           <div
-            className={`text-left pt-6 border-t-2 text-body/medium ${
-              activeTab === index
-                ? "border-gray-primary"
-                : "border-gray-quinary"
+            className={`relative text-left pt-6 border-t-2 text-body/medium border-gray-quinary ${
+              activeTab === index ? "is--active" : ""
             }`}
           >
             <h4
-              className={`mb-4 ${
+              className={`mb-4 transition-colors duration-200 ${
                 activeTab === index
                   ? "text-gray-primary"
                   : "text-gray-quaternary"
@@ -45,7 +44,7 @@ const ServicesList = ({ tabList, type }: ServicesListProps) => {
               {(tab as Tab).title}
             </h4>
             <p
-              className={`${
+              className={`transition-colors duration-200 ${
                 activeTab === index
                   ? "text-gray-tetriary"
                   : "text-gray-quaternary"

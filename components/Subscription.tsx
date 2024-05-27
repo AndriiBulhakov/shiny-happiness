@@ -1,4 +1,5 @@
-import SubscriptionForm from "./ui/SubscriptionForm"
+import NewsletterForm from "./ui/NewsletterForm"
+// import SubscriptionForm from "./ui/SubscriptionForm"
 import React from "react"
 
 const Subscription = () => {
@@ -10,7 +11,7 @@ const Subscription = () => {
           <br />
           Get updates, offers and other news
         </h2>
-        <SubscriptionForm />
+        <NewsletterForm />
       </div>
     </section>
   )

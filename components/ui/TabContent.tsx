@@ -1,81 +1,56 @@
 import React, { useEffect, useState } from "react"
 import tabStyles from "./TabContent.module.css"
-import VideoIcon from "./VideoIcon"
 import Video from "./Video"
+import Lottie from "react-lottie"
+import animationData1 from "../../public/assets/lottie/finalround_comp01.json"
+import animationData2 from "../../public/assets/lottie/finalround_comp02.json"
+import animationData3 from "../../public/assets/lottie/finalround_comp03.json"
+import animationData4 from "../../public/assets/lottie/finalround_comp04.json"
+import animationData5 from "../../public/assets/lottie/finalround_comp05.json"
 
 type TabContentProps = {
   tabs: any[]
   activeTab: number
 }
 
-type Message = {
-  text: string
-  time: string
-}
+const animationDataArray = [
+  animationData1,
+  animationData2,
+  animationData3,
+  animationData4,
+  animationData5,
+]
 
 function TabContent({ tabs, activeTab }: TabContentProps) {
-  const [video, setVideo] = useState<string>(tabs[activeTab].interviewer.video)
+  const [video, setVideo] = useState<string>(tabs[activeTab].video)
+  const [defaultOptions, setDefaultOptions] = useState({
+    loop: true,
+    autoplay: true,
+    animationData: animationDataArray[activeTab],
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  })
 
   useEffect(() => {
-    setVideo(tabs[activeTab].interviewer.video)
+    setDefaultOptions((prevOptions) => ({
+      ...prevOptions,
+      animationData: animationDataArray[activeTab],
+    }))
+  }, [activeTab])
+
+  useEffect(() => {
+    setVideo(tabs[activeTab].video)
   }, [activeTab, tabs])
 
   return (
-    <div className="tab-list">
-      <div className={`flex justify-between gap-2 ${tabStyles["tab-content"]}`}>
-        <div>
-          <span className="relative">
-            Interviewer
-            <VideoIcon
-              color="bg-gray-primary"
-              className="absolute right-[-0.5rem] top-[50%] translate-y-[-50%] translate-x-[100%]"
-            />
-          </span>
-          <ul>
-            <li>
-              <Video src={video} key={video} className="w-full" />
-            </li>
-            {tabs[activeTab].interviewer.messages.map(
-              (message: Message, i: number) => {
-                return (
-                  <li key={i + 1} className="relative">
-                    <span>{message.text}</span>
-                    <span className="message-time">{message.time}</span>
-                  </li>
-                )
-              }
-            )}
-          </ul>
-        </div>
-        <div>
-          <span>Interview Copilot®️</span>
-          <ul>
-            {tabs[activeTab].copilot.messages.map(
-              (message: Message, i: number) => {
-                return (
-                  <li key={i + 1} className="relative">
-                    <span>{message.text}</span>
-                    <span className="message-time">{message.time}</span>
-                  </li>
-                )
-              }
-            )}
-          </ul>
-        </div>
-        <div>
-          <span>You</span>
-          <ul>
-            {tabs[activeTab].you.messages.map((message: Message, i: number) => {
-              return (
-                <li key={i + 1} className="relative">
-                  <span>{message.text}</span>
-                  <span className="message-time">{message.time}</span>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      </div>
+    <div className="relative">
+      <Video
+        key={video}
+        src={video}
+        className="position absolute z-[1] w-[19.3%] h-[33%] object-cover left-[5.6%] top-[14%] rounded-[1.875rem]"
+      />
+      <Lottie options={defaultOptions} />
     </div>
   )
 }
