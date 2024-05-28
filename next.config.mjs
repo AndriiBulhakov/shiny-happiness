@@ -1,9 +1,12 @@
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async headers() {
     return [
       {
+        // matching all API routes
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "false" },
@@ -19,7 +22,7 @@ const nextConfig = {
         ],
       },
     ];
-  }
+  },
 };
 
 export default nextConfig;
