@@ -16,7 +16,13 @@ function Navbar() {
   const handleScroll = () => {
     if (!isScrolling.current) {
       const currentScrollY = window.scrollY
-      if (currentScrollY > lastScrollY.current) {
+      // start from 100px from the top of the page
+      const scrollThreshold = 100
+
+      if (
+        currentScrollY > lastScrollY.current &&
+        currentScrollY > scrollThreshold
+      ) {
         if (navbar.current) {
           gsap.to(navbar.current, {
             y: "-100%",
