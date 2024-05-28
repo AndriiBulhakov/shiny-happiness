@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import Image from "next/image"
 import { FooterCopyright } from "./FooterCopyright"
 import { FooterIconList } from "./FooterIconList"
 

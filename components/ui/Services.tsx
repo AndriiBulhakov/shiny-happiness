@@ -89,7 +89,13 @@ const Services = ({
               <div
                 className={`rounded-[2rem] py-3 px-4 mb-12 flex items-center justify-center gap-2 ${subtitleBackgroundColor} ${subtitleTextColor}`}
               >
-                <img src={subtitleIcon} alt="" className="w-5" />
+                <Image
+                  src={subtitleIcon}
+                  alt=""
+                  className="w-5"
+                  width={15}
+                  height={12}
+                />
                 <h3>{subtitle}</h3>
               </div>
             </div>
@@ -167,7 +173,13 @@ const Services = ({
         <div
           className={`rounded-[2rem] py-3 px-4 mb-6 flex items-center justify-center gap-2 ${subtitleBackgroundColor} ${subtitleTextColor}`}
         >
-          <img src={subtitleIcon} alt="" className="w-5" />
+          <Image
+            src={subtitleIcon}
+            alt=""
+            className="w-5"
+            width={15}
+            height={12}
+          />
           <h3 className="">{subtitle}</h3>
         </div>
         <div className="flex items-end justify-between self-stretch mb-12">

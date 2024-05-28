@@ -472,3 +472,30 @@ export const tutorialsContent = [
     image: "/assets/images/tutorials/tutor-3.png",
   },
 ]
+
+export const footerSocials = [
+  {
+    name: "Twitter",
+    icon: "/assets/images/socials/Social.png",
+    href: "https://twitter.com/FinalRoundAI",
+    id: 1,
+  },
+  {
+    name: "YouTube",
+    icon: "/assets/images/socials/Social2.png",
+    href: "https://www.youtube.com/channel/UCJv7J7Vn8j7zVvZ6u3t8v7Q",
+    id: 2,
+  },
+  {
+    name: "Twitch",
+    icon: "/assets/images/socials/Social3.png",
+    href: "https://www.twitch.tv/finalroundai",
+    id: 3,
+  },
+  {
+    name: "TikTok",
+    icon: "/assets/images/socials/Social4.png",
+    href: "https://www.tiktok.com/@finalroundai",
+    id: 4,
+  },
+]

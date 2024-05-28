@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useForm, SubmitHandler } from "react-hook-form"
 
 interface IFormInput {
@@ -66,7 +66,7 @@ const NewsletterForm: React.FC = () => {
               id="email"
               type="email"
               placeholder="Write your email*"
-              className={`form-control h-full pl-6 rounded-lg min-w-[19.625rem] min-h-[3.5rem] ${
+              className={`form-control h-full pl-6 rounded-lg min-w-[19.625rem] min-h-[3.5rem] focus:border-gray-primary ${
                 errors.email ? "is-invalid" : ""
               }`}
               {...register("email", {

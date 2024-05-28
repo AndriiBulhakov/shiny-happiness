@@ -1,12 +1,22 @@
-import React from "react"
+import React, { forwardRef } from "react"
 
-const Video = ({ className, src }: { className?: string; src: string }) => {
-  return (
-    <video autoPlay loop muted playsInline className={className}>
-      <source src={src} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  )
+type VideoProps = {
+  src: string
+  className?: string
 }
+
+const Video = forwardRef<HTMLVideoElement, VideoProps>(
+  ({ src, className }, ref) => (
+    <video
+      ref={ref}
+      src={src}
+      className={className}
+      autoPlay
+      loop
+      muted
+      playsInline
+    />
+  )
+)
 
 export default Video

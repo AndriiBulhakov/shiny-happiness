@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Image from "next/image"
 import { companies } from "@/data"
 import { EmblaOptionsType } from "embla-carousel"
 import Carousel from "./ui/Carousel"
@@ -14,7 +15,12 @@ const Companies = () => {
   useEffect(() => {
     const logosArray = companies.map(
       (logo: { logo: string; name: string }, index: number) => (
-        <img key={index} src={logo.logo} alt={logo.name} />
+        <img
+          key={index}
+          src={logo.logo}
+          alt={logo.name}
+          className="max-h-[3rem]"
+        />
       )
     )
     setCompaniesElements(logosArray)

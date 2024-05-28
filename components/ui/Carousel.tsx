@@ -6,12 +6,17 @@ type PropType = {
   slides: React.ReactNode[]
   options?: EmblaOptionsType
   gap?: number
+  stopOnHover?: boolean
 }
 
 const Carousel: React.FC<PropType> = (props) => {
-  const { slides, options, gap } = props
+  const { slides, options, gap, stopOnHover } = props
   const [emblaRef] = useEmblaCarousel(options, [
-    AutoScroll({ playOnInit: true }),
+    AutoScroll({
+      playOnInit: true,
+      stopOnMouseEnter: stopOnHover ? true : false,
+      stopOnInteraction: stopOnHover ? false : true,
+    }),
   ])
 
   return (

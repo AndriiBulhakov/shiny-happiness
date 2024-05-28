@@ -10,7 +10,7 @@ function TabList({ tabContent, activeTab, setActiveTab }: TabTypes) {
       {tabContent.map((tab, index) => (
         <button
           key={index}
-          className={`py-5 px-7 rounded-[2.5rem] text-nowrap ${
+          className={`py-5 px-7 rounded-[2.5rem] text-nowrap outline-none border-none ${
             index === activeTab
               ? "bg-red-primary text-white-background"
               : "bg-white-background text-gray-primary"

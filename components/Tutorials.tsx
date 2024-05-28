@@ -7,6 +7,7 @@ import Carousel from "./ui/Carousel"
 import { EmblaOptionsType } from "embla-carousel"
 import axios from "axios"
 import Link from "next/link"
+import Image from "next/image"
 
 interface Tutorial {
   id: string
@@ -73,8 +74,10 @@ const Tutorials = () => {
               >
                 <img
                   src={tutorial.image}
-                  alt=""
+                  alt={tutorial.title}
                   className="w-full rounded-lg max-h-[10.125rem]"
+                  width={350}
+                  height={162}
                 />
                 <p className="text-body/medium text-gray-primary opacity-40">
                   {tutorial.date}
@@ -121,7 +124,12 @@ const Tutorials = () => {
         title="Learn more about AI superpowers to navigate this recruiting season"
         subtitle="AI Will Not Take Your Job But Someone Using AI Will"
       />
-      <Carousel slides={tutorialsSlides} options={OPTIONS} gap={20} />
+      <Carousel
+        slides={tutorialsSlides}
+        options={OPTIONS}
+        gap={20}
+        stopOnHover={true}
+      />
     </section>
   )
 }

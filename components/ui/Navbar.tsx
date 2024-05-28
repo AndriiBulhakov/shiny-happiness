@@ -1,19 +1,14 @@
 "use client"
 
-import { useState, useEffect, useRef, use } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Logo } from "@/components/ui/Logo"
 import navStyles from "./NavbarMobile.module.css"
 import { navLinks } from "@/data"
 import gsap from "gsap"
 
-interface NavbarProps {
-  loaded: () => void
-}
-
-function Navbar({ loaded }: NavbarProps) {
+function Navbar() {
   const [menuToggle, setMenuToggle] = useState<boolean>(false)
   const [navColor, setNavColor] = useState<boolean>(false)
-  const [navTranslate, setNavTranslate] = useState<number>(0)
   const lastScrollY = useRef<number>(0)
   const isScrolling = useRef<boolean>(false)
   const navbar = useRef<HTMLDivElement>(null)
@@ -22,12 +17,20 @@ function Navbar({ loaded }: NavbarProps) {
     if (!isScrolling.current) {
       const currentScrollY = window.scrollY
       if (currentScrollY > lastScrollY.current) {
-        if (navTranslate !== -100) {
-          setNavTranslate(-100)
+        if (navbar.current) {
+          gsap.to(navbar.current, {
+            y: "-100%",
+            duration: 0.5,
+            ease: "power2.out",
+          })
         }
       } else {
-        if (navTranslate !== 0) {
-          setNavTranslate(0)
+        if (navbar.current) {
+          gsap.to(navbar.current, {
+            y: "0%",
+            duration: 0.5,
+            ease: "power2.out",
+          })
         }
       }
       lastScrollY.current = currentScrollY
@@ -59,35 +62,32 @@ function Navbar({ loaded }: NavbarProps) {
     return () => {
       window.removeEventListener("scroll", onScroll)
     }
-  }, [navColor, navTranslate])
+  }, [navColor])
 
   useEffect(() => {
     if (menuToggle) {
       document.body.style.overflow = "hidden"
+      gsap.to(navbar.current, { backgroundColor: "#333", duration: 0.5 })
     } else {
       document.body.style.overflow = "auto"
+      gsap.to(navbar.current, { backgroundColor: "transparent", duration: 0.5 })
     }
   }, [menuToggle])
 
   useEffect(() => {
     gsap.set(navbar.current, { y: "-100%" })
-
-    if (loaded) {
-      gsap.to(navbar.current, {
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out",
-        delay: 0.4,
-        onComplete: loaded,
-      })
-    }
-  }, [loaded])
+    gsap.to(navbar.current, {
+      y: 0,
+      duration: 0.8,
+      ease: "power2.out",
+      delay: 0.6,
+    })
+  }, [])
 
   return (
     <nav
       ref={navbar}
-      style={{ transform: `translateY(${navTranslate}%)` }}
-      className={`flex flex-row items-center justify-between font-medium text-body/medium  lg:py-6 lg:px-5 xs:p-4 fixed z-[100] top-0 left-0 right-0 ${
+      className={`flex flex-row items-center justify-between font-medium text-body/medium  lg:py-[0.8rem] lg:px-5 xs:p-4 fixed z-[100] top-0 left-0 right-0 ${
         navColor ? "nav-scroll" : ""
       }`}
     >
@@ -113,7 +113,14 @@ function Navbar({ loaded }: NavbarProps) {
                     item.icon ? "flex items-center gap-[0.38rem]" : ""
                   }`}
                 >
-                  <a href={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={() => {
+                      if (window.innerWidth <= 1024) {
+                        handleMenuToggle()
+                      }
+                    }}
+                  >
                     {item.type !== "button" && item.mobileOnly ? (
                       <div className="btn btn-primary">{item.name}</div>
                     ) : null}
@@ -149,7 +156,10 @@ function Navbar({ loaded }: NavbarProps) {
             return (
               <li key={i + 1}>
                 {item.type === "button" ? (
-                  <a href={item.href} className="btn btn-primary">
+                  <a
+                    href={item.href}
+                    className="btn btn-primary without-underline"
+                  >
                     {item.name}
                   </a>
                 ) : (
@@ -160,7 +170,7 @@ function Navbar({ loaded }: NavbarProps) {
               </li>
             )
           }
-          return
+          return null
         })}
       </ul>
 

@@ -31,7 +31,7 @@ const CookieConsentBanner = () => {
   return (
     <div className="mentions-wrapper fixed z-20 sm:bottom-5 sm:right-5 sm:left-auto xs:bottom-4 xs:right-4 xs:left-4 sm:max-w-[33.625rem] sm:w-full sm:p-8 xs:p-6 rounded-[2rem]">
       <button
-        className="absolute sm:top-12 sm:right-12 xs:top-8 xs:right-8"
+        className="absolute sm:top-9 sm:right-9 xs:right-6 xs:top-6"
         onClick={handleReject}
       >
         <svg
@@ -50,15 +50,16 @@ const CookieConsentBanner = () => {
           />
         </svg>
       </button>
-      <h3 className="text-headlines/h2 text-white-primary">
+      <h3 className="text-headlines/h3 text-white-primary mr-6">
         We Value Your Privacy
       </h3>
-      <p className="text-white-secondary mt-6 mb-8 max-w-[25.125rem]">
+      <p className="text-body/small text-white-secondary mt-4 mb-6">
         We use cookies to enhance your experience, personalize ads, and analyze
-        our traffic. By clicking "Accept All", you consent to all cookies. Use
-        "Reject All" to decline non-essential cookies. For more details, please
-        find our privacy policy here.
+        our traffic. By clicking &quot;Accept All&quot;, you consent to all
+        cookies. Use &quot;Reject All&quot; to decline non-essential cookies.
+        For more details, please find our privacy policy here.
       </p>
+
       <div className="w-full flex gap-4 sm:flex-row xs:flex-col max-w-full">
         <button
           className="btn btn-quaternary is--white flex-1"

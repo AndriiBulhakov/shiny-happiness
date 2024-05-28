@@ -4,6 +4,7 @@ import Carousel from "./ui/Carousel"
 import { EmblaOptionsType } from "embla-carousel"
 import SectionsHeader from "./ui/SectionHeader"
 import axios from "axios"
+import Image from "next/image"
 
 interface Logo {
   fileId: string
@@ -75,7 +76,7 @@ const Testimonials = () => {
               <img
                 src={testimonial.fieldData.logo.url}
                 alt={testimonial.fieldData.logo.alt || ""}
-                className="h-[3.25rem]"
+                className="max-h-[3.25rem]"
               />
             </div>
           )
@@ -98,7 +99,12 @@ const Testimonials = () => {
         title="Discover the power of our product through real stories"
         subtitle="We Are Here to Help You Succeed"
       />
-      <Carousel slides={testimonialsSlides} options={OPTIONS} gap={20} />
+      <Carousel
+        slides={testimonialsSlides}
+        options={OPTIONS}
+        gap={20}
+        stopOnHover={true}
+      />
     </section>
   )
 }

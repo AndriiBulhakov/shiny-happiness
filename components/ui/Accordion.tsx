@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { useState, useRef, useEffect } from "react"
 
 interface AccordionProps {
   title: string
@@ -8,15 +9,24 @@ interface AccordionProps {
 }
 
 const Accordion = ({ title, isOpen, onToggle, content }: AccordionProps) => {
+  const [contentHeight, setContentHeight] = useState(0)
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight)
+    }
+  }, [isOpen])
+
   return (
     <div
-      className={`gap-4 p-2 rounded-[2rem] bg-white-background w-full transition-all duration-300 cursor-pointer ${
+      className={`p-2 rounded-[2rem] bg-white-background w-full transition-all duration-300 cursor-pointer ${
         isOpen ? "pb-2" : "pb-2"
       }`}
       onClick={onToggle}
     >
       <div
-        className={`p-8 rounded-3xl flex flex-col gap-6 text-left transition-all duration-300 hover:bg-blue-secondary ${
+        className={`p-8 rounded-3xl flex flex-col text-left transition-all duration-300 hover:bg-blue-secondary ${
           isOpen ? "bg-blue-secondary" : "bg-white"
         }`}
       >
@@ -30,11 +40,15 @@ const Accordion = ({ title, isOpen, onToggle, content }: AccordionProps) => {
           />
         </div>
         <div
-          className={`accordion-content transition-opacity duration-300 text-gray-tetriary ${
-            isOpen ? "opacity-100 block" : "opacity-0 hidden"
-          }`}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+          className="accordion-content transition-all duration-300 text-gray-tetriary overflow-hidden"
+          style={{
+            maxHeight: isOpen ? contentHeight + "px" : "0px",
+            marginTop: isOpen ? "24px" : "0px",
+          }}
+          ref={contentRef}
+        >
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </div>
       </div>
     </div>
   )

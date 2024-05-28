@@ -2,8 +2,6 @@
 
 // import { ReactLenis } from "@studio-freight/react-lenis"
 
-import { useState } from "react"
-
 import { Hero } from "@/components/Hero"
 import BackgroundBubbles from "@/components/ui/BackgroundBubbles"
 import { Navbar } from "@/components/ui/Navbar"
@@ -26,24 +24,14 @@ import CookieConsentBanner from "@/components/CookieConsentBanner"
 import Preloader from "@/components/ui/Preloader"
 
 export default function Home() {
-  const [loaded, setLoaded] = useState(false)
-
-  const handleLoaded = () => {
-    setLoaded(true)
-
-    if (loaded) {
-      return true
-    }
-  }
-
   return (
     <>
       {/* <ReactLenis root> */}
-      <Preloader loaded={handleLoaded} />
+      <Preloader />
       <main>
         <BackgroundBubbles position="fixed" className="z-[-1]" />
-        <Navbar loaded={handleLoaded} />
-        <Hero loaded={handleLoaded} />
+        <Navbar />
+        <Hero />
         <Chat />
         <Companies />
 

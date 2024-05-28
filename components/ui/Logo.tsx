@@ -1,21 +1,27 @@
+import Image from "next/image"
+
 const Logo = ({ className, type }: { className?: string; type: string }) => {
   return (
     <>
-      <img
+      <Image
         src="/assets/images/full-logo.svg"
         alt="logo"
         loading="lazy"
         className={`${className} ${
           type === "nav" ? "lg:block xs:hidden" : "xs:block"
         }`}
+        width={189}
+        height={28}
       />
-      <img
+      <Image
         src="/assets/images/short-logo.svg"
         alt="logo"
         loading="lazy"
         className={`${className} ${
           type === "nav" ? "lg:hidden xs:block" : "xs:hidden"
         }`}
+        width={58}
+        height={50}
       />
     </>
   )

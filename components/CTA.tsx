@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const CTA = () => {
   return (
     <section className="pt-28 sm:px-5 xs:px-4 pb-4">
@@ -16,17 +18,21 @@ const CTA = () => {
         </div>
 
         <div className="lg:absolute lg:top-0 lg:bottom-0 lg:right-0 lg:left-0 lg:h-auto sm:h-[48rem] xs:h-[27rem]">
-          <img
+          <Image
             src="/assets/images/sticky-tabs/cta-1.png"
             alt="CTA Background"
             loading="lazy"
             className="absolute lg:bottom-[-30.038%] lg:right-[-18.786%] lg:left-[auto] lg:w-[98.5%] sm:left-[-13%] sm:bottom-[-11%] sm:w-[170%] xs:left-[-16%] xs:bottom-[-9%] xs:w-[200%] max-w-none"
+            width={1083}
+            height={718}
           />
-          <img
+          <Image
             src="/assets/images/sticky-tabs/cta-2.png"
             alt="CTA Background"
             loading="lazy"
             className="absolute lg:bottom-[8.846%] lg:right-[-19.071%] lg:w-[67.286%] sm:w-[120%] xs:w-[130%] xs:bottom-[8.846%] max-w-none"
+            width={745}
+            height={487}
           />
         </div>
       </div>
